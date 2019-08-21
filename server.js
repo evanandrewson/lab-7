@@ -54,40 +54,13 @@ function toLocation() {
 function toWeather() {
     const daily = weatherData.daily;
     const data = daily.data;
-
-    return [{
-        time: data[0].time,
-        forecast: data[0].summary,
-    },
-    {
-        time: data[1].time,
-        forecast: data[1].summary,
-    },
-    {
-        time: data[2].time,
-        forecast: data[2].summary,
-    },
-    {
-        time: data[3].time,
-        forecast: data[3].summary,
-    },
-    {
-        time: data[4].time,
-        forecast: data[4].summary,
-    },
-    {
-        time: data[5].time,
-        forecast: data[5].summary,
-    },
-    {
-        time: data[6].time,
-        forecast: data[6].summary,
-    },
-    {
-        time: data[7].time,
-        forecast: data[7].summary,
-    }
-    ];
+    const dataResults = data.map((value) => {
+        return {
+            time: new Date(value.time).toISOString(),
+            forecast: value.summary
+        };
+    });
+    return dataResults;
 }
 
 app.listen(PORT, () => {
