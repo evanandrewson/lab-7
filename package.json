@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/evanandrewson/lab-7/issues"
   },
-  "homepage": "https://github.com/evanandrewson/lab-7#readme"
+  "homepage": "https://github.com/evanandrewson/lab-7#readme",
+  "directories": {
+    "lib": "lib"
+  }
 }
