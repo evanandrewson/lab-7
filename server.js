@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const mapsApi = require('./lib/maps-api');
 const weatherApi = require('./lib/weather-api');
+const eventApi = require('./lib/events-api');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -30,6 +31,21 @@ app.get('/weather', (request, response) => {
     weatherApi.getForecast(latitude, longitude)
         .then(forecast => {
             response.json(forecast);
+        })
+        .catch(err => {
+            response.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
+app.get('/events', (request, response) => {
+    const latitude = request.query.latitude;
+    const longitude = request.query.longitude;
+    
+    eventApi.getEvents(latitude, longitude)
+        .then(event => {
+            response.json(event);
         })
         .catch(err => {
             response.status(500).json({
