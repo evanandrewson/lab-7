@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 
 const mapsApi = require('./lib/maps-api');
-const weatherApi = require('./lib/weather-api');
+// const weatherApi = require('./lib/weather-api');
 
 const app = express();
 const PORT = process.env.PORT;
